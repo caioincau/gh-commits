@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom'
-import './RepoItem.css';
 
 class RepoItem extends Component {
   render() {

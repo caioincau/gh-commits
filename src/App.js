@@ -5,6 +5,7 @@ import RepoList from './views/RepoList'
 import RepoDetails from './views/RepoDetails'
 import ErrorBoundary from './components/ErrorBoundary'
 import './App.css';
+import 'materialize-css/dist/css/materialize.css'
 
 import {
   BrowserRouter as Router,

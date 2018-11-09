@@ -51,7 +51,7 @@ class RepoList extends Component {
     }
     return (
       <div className="repo-list">
-        <h2 className="repo-list__header">Repositories</h2>
+        <h2 className="repo-list__header">@caioincau repositories</h2>
         <div>
           <RepoTableContainer repos={this.props.repoList}></RepoTableContainer>
         </div>

@@ -4,7 +4,7 @@ class CommitItem extends Component {
   render() {
     return (
       <div>
-        <h2>Error on API, please try again later</h2>
+        <h2 className="center-align">Error on API, please try again later</h2>
       </div>
     )
   }

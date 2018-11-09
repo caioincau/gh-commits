@@ -6,5 +6,5 @@
 - [x]Infinite scroll in repos
 - [x]ES6(write down in the readme why you used and for what, for at least 2)
 - Sort repos
-- Storybook
+- [X]Storybook
 - [x]Style

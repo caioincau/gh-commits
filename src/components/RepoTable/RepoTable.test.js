@@ -9,7 +9,7 @@ import {
 Enzyme.configure({ adapter: new Adapter() });
 
 
-let repos = [{
+const repos = [{
   id: 1,
   name: 'React test',
   description: 'A repository with react'

@@ -12,7 +12,7 @@ Enzyme.configure({ adapter: new Adapter() });
 const repo = {
   name: 'React test',
   description: 'A repository with react'
- }
+}
 
 let wrapper = {}
 

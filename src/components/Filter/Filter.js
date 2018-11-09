@@ -5,7 +5,7 @@ class Filter extends Component {
   render() {
     return (
       <label htmlFor="search">
-        Buscar
+        Find
         <input type="text"  placeholder="Commit message" name={this.props.name} onInput={this.props.change}></input>
       </label>
     )
