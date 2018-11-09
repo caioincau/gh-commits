@@ -12,7 +12,10 @@
     "redux": "^4.0.1"
   },
   "devDependencies": {
-    "react-scripts": "2.1.1"
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.7.0",
+    "react-scripts": "2.1.1",
+    "react-test-renderer": "^16.6.1"
   },
   "scripts": {
     "start": "react-scripts start",
