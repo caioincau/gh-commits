@@ -7,16 +7,12 @@ import * as repoAction from '../../store/actions/github'
 import RepoTableContainer from '../../components/RepoTable'
 import axios from 'axios'
 import './RepoList.css';
+import FailurePage from '../../components/FailurePage';
 
 class RepoList extends Component {
   constructor(props) {
     super(props);
-    this.onChangeInput = this.onChangeInput.bind(this);
-  }
-
-
-  onChangeInput(e) {
-    this.setState({[e.target.name]: e.target.value})
+    this.state = { error: false }
   }
 
   componentDidMount() {
@@ -24,10 +20,18 @@ class RepoList extends Component {
     .then(response => {
       this.props.setRepos(response.data)
       console.log(this.props.repoList)
+    }).catch((error) => {
+      console.log(error)
+      this.setState({
+        error: true
+      });
     })
   }
 
   render = () => {
+    if(this.state.error) {
+      return (<FailurePage></FailurePage>)
+    }
     return (
       <div className="repo-list">
         <h2 className="repo-list__header">Repositories</h2>

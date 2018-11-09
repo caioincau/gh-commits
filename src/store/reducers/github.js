@@ -1,4 +1,4 @@
-const reducer = (state = [], action) => {
+const reducer = (state = { commits: [], repos: []}, action) => {
   switch (action.type) {
     case 'SET_REPOS':
       return {
@@ -8,7 +8,7 @@ const reducer = (state = [], action) => {
     case 'ADD_COMMITS':
       return {
         ...state,
-        commits: action.commits
+        commits: state.commits.concat(action.commits)
       }
     case 'CLEAR_COMMITS':
       return {
