@@ -1,9 +1,10 @@
-- Catch error on api
-- Loading state
-- filter
+- [x]Catch error on api
+- [x]Loading state
+- [x]filter
 - upgrade test coverage
-- Infinite scroll
-- ES6(write down in the readme why you used and for what, for at least 2)
+- [x]Infinite scroll in commits
+- [x]Infinite scroll in repos
+- [x]ES6(write down in the readme why you used and for what, for at least 2)
 - Sort repos
 - Storybook
-- Style
+- [x]Style

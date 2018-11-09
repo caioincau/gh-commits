@@ -4,6 +4,8 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+
+import './RepoDetails.css'
 import * as repoAction from '../../store/actions/github'
 
 import CommitsTableContainer from '../../components/CommitsTable'
@@ -44,7 +46,7 @@ class RepoDetails extends Component {
   }
 
   fetchCommits(page) {
-    axios.get(`https://api.github.com/repos/caioincau/${this.props.match.params.id}/commits?page=${page}`)
+    axios.get(`https://api.github.com/repos/caioincau/${this.props.match.params.id}/commits?page=${page}&client_id=e09786bd7b7fceeec05c&client_secret=8f399db566137bbd578b73adf341cc29bf8445e8`)
       .then(response => {
         this.props.addCommits(response.data);
         this.setState({
@@ -69,11 +71,17 @@ class RepoDetails extends Component {
       )
     }
     return (
-      <div>
-        <Link to="/">Back</Link>
-        <Filter name="filter" change={this.onChangeInput} ></Filter>
-        {this.props.match.params.id}
-          <CommitsTableContainer commits={this.props.commits} filter={this.state.filter}></CommitsTableContainer>
+      <div className="card row">
+        <div className="repo-details__header">
+          <Link className="waves-effect waves-light btn" to="/">Back</Link>
+          <div>
+            <p>
+              {this.props.match.params.id}
+            </p>
+            <Filter name="filter" change={this.onChangeInput} ></Filter>
+          </div>
+        </div>
+        <CommitsTableContainer commits={this.props.commits} filter={this.state.filter}></CommitsTableContainer>
       </div>
     )
   }

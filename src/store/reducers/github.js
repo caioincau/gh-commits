@@ -3,7 +3,7 @@ const reducer = (state = { commits: [], repos: []}, action) => {
     case 'SET_REPOS':
       return {
         ...state,
-        repos: action.repos
+        repos: state.repos.concat(action.repos)
       }
     case 'ADD_COMMITS':
       return {
