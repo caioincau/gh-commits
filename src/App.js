@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Provider } from 'react-redux'
 
 import RepoList from './views/RepoList'
+import RepoDetails from './views/RepoDetails'
 import ErrorBoundary from './components/ErrorBoundary'
 import './App.css';
 
@@ -20,6 +21,7 @@ class App extends Component {
           <ErrorBoundary>
             <div>
               <Route exact path="/" component={RepoList}/>
+              <Route exact path="/repository/:id" component={RepoDetails} />
             </div>
           </ErrorBoundary>
         </Provider>

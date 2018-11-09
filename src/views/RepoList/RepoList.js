@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import * as repoAction from '../../store/actions/repos'
+import * as repoAction from '../../store/actions/github'
 
 import RepoTableContainer from '../../components/RepoTable'
 import axios from 'axios'
@@ -23,6 +23,7 @@ class RepoList extends Component {
     axios.get('https://api.github.com/users/caioincau/repos')
     .then(response => {
       this.props.setRepos(response.data)
+      console.log(this.props.repoList)
     })
   }
 
@@ -39,7 +40,7 @@ class RepoList extends Component {
 }
 
 const mapStateToProps = state => ({
-  repoList: state.repos
+  repoList: state.github.repos
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators(repoAction, dispatch)
