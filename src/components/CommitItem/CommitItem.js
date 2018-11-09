@@ -7,8 +7,8 @@ class CommitItem extends Component {
     return (
       <tr className="commit-item">
         <td className="commit-item__sha">{this.props.commit.sha}</td>
+        <td className="commit-item__message">{this.props.commit.commit.message}</td>
         <td className="commit-item__author">{this.props.commit.author.login}</td>
-        <td className="commit-item__message">{this.props.commit.message}</td>
       </tr>
     )
   }

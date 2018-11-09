@@ -8,7 +8,9 @@ Enzyme.configure({ adapter: new Adapter() });
 
 const commit = {
   sha: 'daijoijiodaijo41',
-  message: 'A good commit',
+  commit: {
+    message: 'A good commit',
+  },
   author: {
     login: 'jack'
   }
