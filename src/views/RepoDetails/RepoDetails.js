@@ -35,6 +35,10 @@ class RepoDetails extends Component {
     axios.get(`https://api.github.com/repos/caioincau/${this.props.match.params.id}/commits?page=${page}`)
       .then(response => {
         this.props.addCommits(response.data);
+        this.setState({
+          ...this.state,
+          page: page+1
+        })
       }).catch(() => {
         this.setState({
           ...this.state,
