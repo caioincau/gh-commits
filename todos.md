@@ -1,0 +1,8 @@
+- Catch error on api
+- Loading state
+- upgrade test coverage
+- Infinite scroll
+- ES6(write down in the readme why you used and for what, for at least 2)
+- Sort repos
+- Storybook
+- Style

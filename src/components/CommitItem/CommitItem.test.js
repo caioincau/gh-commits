@@ -1,34 +1,42 @@
 import React from 'react';
-import RepoItem from './RepoItem';
+import CommitItem from './CommitItem';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 Enzyme.configure({ adapter: new Adapter() });
 
 
-const repo = {
-  name: 'React test',
-  descriptio: 'A repository with react'
+const commit = {
+  sha: 'daijoijiodaijo41',
+  message: 'A good commit',
+  author: {
+    login: 'jack'
+  }
  }
 
 let wrapper = {}
 
 beforeEach(() => {
   wrapper = Enzyme.shallow(
-    <RepoItem repo={repo}></RepoItem>
+    <CommitItem commit={commit}></CommitItem>
   );
 });
 
 it('renders without crashing', () => {
-  expect(wrapper.find('.repo-item__description').length).toEqual(1);
+  expect(wrapper.find('.commit-item').length).toEqual(1);
 });
 
-it('should render link', () => {
-  expect(wrapper.find('.repo-item__link').length).toEqual(1);
+it('should render sha', () => {
+  expect(wrapper.find('.commit-item__sha').text()).toEqual('daijoijiodaijo41');
 });
 
-it('should render link text', () => {
-  expect(wrapper.find('.repo-item__link').text()).toEqual('React test');
+it('should render commit message', () => {
+  console.log(wrapper.find('.commit-item__message').text())
+  expect(wrapper.find('.commit-item__message').text()).toEqual('A good commit');
+});
+
+it('should render the author name', () => {
+  expect(wrapper.find('.commit-item__author').text()).toEqual('jack');
 });
 
 

@@ -2,6 +2,9 @@ import React from 'react';
 import RepoTable from './RepoTable';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import {
+  BrowserRouter as Router,
+} from 'react-router-dom'
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -9,12 +12,12 @@ Enzyme.configure({ adapter: new Adapter() });
 let repos = [{
   id: 1,
   name: 'React test',
-  descriptio: 'A repository with react'
+  description: 'A repository with react'
  },
  {
   id: 2,
   name: 'Vue test',
-  descriptio: 'A repository with Vue'
+  description: 'A repository with Vue'
  }]
 
 let wrapper = {}
@@ -22,7 +25,9 @@ let wrapper = {}
 
 let mountComponent = () => {
   return Enzyme.mount(
-    <RepoTable repos={repos}></RepoTable>
+    <Router>
+      <RepoTable repos={repos}></RepoTable>
+    </Router>
   );
 }
 

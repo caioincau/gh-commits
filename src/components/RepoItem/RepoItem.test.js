@@ -2,20 +2,25 @@ import React from 'react';
 import RepoItem from './RepoItem';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import {
+  BrowserRouter as Router,
+} from 'react-router-dom'
 
 Enzyme.configure({ adapter: new Adapter() });
 
 
 const repo = {
   name: 'React test',
-  descriptio: 'A repository with react'
+  description: 'A repository with react'
  }
 
 let wrapper = {}
 
 beforeEach(() => {
-  wrapper = Enzyme.shallow(
-    <RepoItem repo={repo}></RepoItem>
+  wrapper = Enzyme.mount(
+    <Router>
+      <RepoItem repo={repo}></RepoItem>
+    </Router>
   );
 });
 
@@ -28,7 +33,7 @@ it('should render link', () => {
 });
 
 it('should render link text', () => {
-  expect(wrapper.find('.repo-item__link').text()).toEqual('React test');
+  expect(wrapper.find('Link').text()).toEqual('React test');
 });
 
 
