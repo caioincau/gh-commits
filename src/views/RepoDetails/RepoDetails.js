@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 import * as repoAction from '../../store/actions/github'
 
 import CommitsTableContainer from '../../components/CommitsTable'
+import Filter from '../../components/Filter'
 import FailurePage from '../../components/FailurePage';
 
 
@@ -15,11 +16,14 @@ class RepoDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      filter: '',
       error: false,
       page: 1
     }
+    this.onChangeInput = this.onChangeInput.bind(this);
   }
 
+  //Lifecycle
   componentDidMount() {
     this.fetchCommits(1);
     window.onscroll = () => {
@@ -29,6 +33,14 @@ class RepoDetails extends Component {
         this.fetchCommits(this.state.page)
       }
     };
+  }
+
+  componentWillUnmount() {
+    this.props.clearCommits()
+  }
+
+  onChangeInput(e) {
+    this.setState({[e.target.name]: e.target.value})
   }
 
   fetchCommits(page) {
@@ -48,9 +60,7 @@ class RepoDetails extends Component {
       });
   }
 
-  componentWillUnmount() {
-    this.props.clearCommits()
-  }
+
 
   render = () => {
     if(this.state.error) {
@@ -61,8 +71,9 @@ class RepoDetails extends Component {
     return (
       <div>
         <Link to="/">Back</Link>
+        <Filter name="filter" change={this.onChangeInput} ></Filter>
         {this.props.match.params.id}
-          <CommitsTableContainer commits={this.props.commits}></CommitsTableContainer>
+          <CommitsTableContainer commits={this.props.commits} filter={this.state.filter}></CommitsTableContainer>
       </div>
     )
   }
