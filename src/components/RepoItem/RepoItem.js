@@ -9,6 +9,7 @@ class RepoItem extends Component {
       <tr className="repo-item">
         <td className="repo-item__link"><Link to={`/repository/${this.props.repo.name}`}>{this.props.repo.name}</Link> </td>
         <td className="repo-item__description">{this.props.repo.description}</td>
+        <td className="repo-item__start">{this.props.repo.stargazers_count}</td>
       </tr>
     )
   }

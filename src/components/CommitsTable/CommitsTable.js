@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import ReactLoading from 'react-loading';
 import CommitItem from '../CommitItem'
+import './CommitTable.css';
 
 class CommitsTableContainer extends Component {
 
@@ -14,13 +16,24 @@ class CommitsTableContainer extends Component {
 
 }
 
-const CommitsTable = ({commits}) => (
-  <table className="commits-table">
+const CommitsTable = ({commits}) => {
+  if(commits.length < 1) {
+    return (<div className="commits-table__loading"><ReactLoading type="spokes" color="#ff5a49" /></div>)
+  }
+  return (
+  <table className="commits-table striped responsive-table">
+    <thead>
+      <tr>
+        <th>Hash</th>
+        <th>Message</th>
+        <th>Author</th>
+      </tr>
+    </thead>
     <tbody>
       { commits && commits.map(commit => <CommitItem key={commit.sha} commit={commit}></CommitItem>) }
     </tbody>
   </table>
-)
+)}
 
 
 export default CommitsTableContainer

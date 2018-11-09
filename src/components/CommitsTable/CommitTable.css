@@ -1,0 +1,16 @@
+.commits-table {
+  max-width: 95%;
+  margin: 0 auto;
+}
+.commits-table__loading {
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media (min-width: 600px) {
+  .commits-table {
+    max-width: 80%;
+  }
+}

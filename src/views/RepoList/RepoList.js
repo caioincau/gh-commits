@@ -12,20 +12,37 @@ import FailurePage from '../../components/FailurePage';
 class RepoList extends Component {
   constructor(props) {
     super(props);
-    this.state = { error: false }
+    this.state = {
+      error: false,
+      page: 1
+    }
   }
 
   componentDidMount() {
-    axios.get('https://api.github.com/users/caioincau/repos')
-    .then(response => {
-      this.props.setRepos(response.data)
-      console.log(this.props.repoList)
-    }).catch((error) => {
-      console.log(error)
-      this.setState({
-        error: true
+    this.fetchRepos(1);
+    window.onscroll = () => {
+      const reachedEndOfPage = window.innerHeight + document.documentElement.scrollTop
+        === document.documentElement.offsetHeight;
+      if (reachedEndOfPage) {
+        this.fetchRepos(this.state.page)
+      }
+    };
+
+  }
+
+  fetchRepos(page) {
+    axios.get(`https://api.github.com/users/caioincau/repos?page=${page}&client_id=e09786bd7b7fceeec05c&client_secret=8f399db566137bbd578b73adf341cc29bf8445e8`)
+      .then(response => {
+        this.props.setRepos(response.data);
+        this.setState({
+          ...this.state,
+          page: page+1
+        })
+      }).catch((error) => {
+        this.setState({
+          error: true
+        });
       });
-    })
   }
 
   render = () => {
