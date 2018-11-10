@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
-import './RepoDetails.css'
+import styles from './RepoDetails.module.css'
 import * as repoAction from '../../store/actions/github'
 
 import CommitsTableContainer from '../../components/CommitsTable'
@@ -72,7 +72,7 @@ class RepoDetails extends Component {
     }
     return (
       <div className="card row">
-        <div className="repo-details__header">
+        <div className={styles.header}>
           <Link className="waves-effect waves-light btn" to="/">Back</Link>
           <div>
             <p>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactLoading from 'react-loading';
 import RepoItem from '../RepoItem'
-import './RepoTable.css';
+import style from './RepoTable.module.css';
 
 class RepoTableContainer extends Component {
   render() {
@@ -11,7 +11,7 @@ class RepoTableContainer extends Component {
 
 const RepoTable = ({repos}) => {
   if(repos.length < 1) {
-    return (<div className="repos-table__loading"><ReactLoading type="spokes" color="#ff5a49" /></div>)
+    return (<div className={style.loading}><ReactLoading type="spokes" color="#ff5a49" /></div>)
   }
   return (
   <div>

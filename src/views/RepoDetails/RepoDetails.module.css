@@ -1,9 +1,9 @@
-.repo-details__header {
+.header {
   max-width: 95%;
   margin: 0 auto;
 }
 @media (min-width: 600px) {
-  .repo-details__header {
+  .header {
     max-width: 80%;
   }
 }

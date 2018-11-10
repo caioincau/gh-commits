@@ -6,7 +6,7 @@ import * as repoAction from '../../store/actions/github'
 
 import RepoTableContainer from '../../components/RepoTable'
 import axios from 'axios'
-import './RepoList.css';
+import styles from './RepoList.module.css';
 import FailurePage from '../../components/FailurePage';
 
 class RepoList extends Component {
@@ -50,8 +50,8 @@ class RepoList extends Component {
       return (<FailurePage></FailurePage>)
     }
     return (
-      <div className="repo-list">
-        <h2 className="repo-list__header">@caioincau repositories</h2>
+      <div className={styles.list}>
+        <h2 className={styles.header}>@caioincau repositories</h2>
         <div>
           <RepoTableContainer repos={this.props.repoList}></RepoTableContainer>
         </div>

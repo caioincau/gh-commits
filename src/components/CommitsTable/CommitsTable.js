@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactLoading from 'react-loading';
 import CommitItem from '../CommitItem'
-import './CommitTable.css';
+import styles from './CommitTable.module.css';
 
 class CommitsTableContainer extends Component {
 
@@ -18,10 +18,10 @@ class CommitsTableContainer extends Component {
 
 const CommitsTable = ({commits}) => {
   if(commits.length < 1) {
-    return (<div className="commits-table__loading"><ReactLoading type="spokes" color="#ff5a49" /></div>)
+    return (<div className={styles.loading}><ReactLoading type="spokes" color="#ff5a49" /></div>)
   }
   return (
-  <table className="commits-table striped responsive-table">
+  <table className={`${styles.table} striped responsive-table`}>
     <thead>
       <tr>
         <th>Hash</th>
