@@ -7,6 +7,9 @@ Project with Github integration
 - Another case is the destructuring operator on setState, to merge two objects into a new one
 - Use of import alias like this: BrowserRouter as Router
 
+##Lighthouse audits
+![Lighthouse](Lighthouse.png?raw=true "Lighthouse")
+
 ## Available Scripts
 
 In the project directory, you can run:
