@@ -14,7 +14,8 @@ class RepoList extends Component {
     super(props);
     this.state = {
       error: false,
-      page: 1
+      page: 1,
+      order_by: 'name'
     }
   }
 
@@ -45,6 +46,23 @@ class RepoList extends Component {
       });
   }
 
+  changeSort(name) {
+    this.setState({
+      ...this.state,
+      order_by: name
+    })
+  }
+
+  sort(repoList, attr) {
+    const POSSIBLES = ['name', 'description', 'stargazers_count']
+    if(!POSSIBLES.includes(attr)) {
+      return repoList
+    }
+    let newOrder = repoList.sort((a, b) => + String(a[attr]).localeCompare(b[attr]))
+    if(attr === 'stargazers_count') newOrder = newOrder.reverse()
+    return newOrder
+  }
+
   render = () => {
     if(this.state.error) {
       return (<FailurePage></FailurePage>)
@@ -53,7 +71,13 @@ class RepoList extends Component {
       <div className={styles.list}>
         <h2 className={styles.header}>@caioincau repositories</h2>
         <div>
-          <RepoTableContainer repos={this.props.repoList}></RepoTableContainer>
+          <p>Sort by:</p>
+          <button className={`${styles.button} btn`} onClick={() => this.changeSort('name')}>Name</button>
+          <button className={`${styles.button} btn`} onClick={() => this.changeSort('description')}>Description</button>
+          <button className={`${styles.button} btn`} onClick={() => this.changeSort('stargazers_count')}>Stars</button>
+        </div>
+        <div>
+          <RepoTableContainer repos={this.sort(this.props.repoList, this.state.order_by)}></RepoTableContainer>
         </div>
       </div>
     )
