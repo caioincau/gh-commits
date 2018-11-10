@@ -19,7 +19,11 @@ let wrapper = {}
 beforeEach(() => {
   wrapper = Enzyme.mount(
     <Router>
-      <RepoItem repo={repo}></RepoItem>
+      <table>
+        <tbody>
+          <RepoItem repo={repo}></RepoItem>
+        </tbody>
+      </table>
     </Router>
   );
 });

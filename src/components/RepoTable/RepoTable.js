@@ -17,7 +17,7 @@ const RepoTable = ({repos}) => {
   <div>
     <table className="striped responsive-table">
       <thead>
-        <tr className="repo-item">
+        <tr>
           <th>Name</th>
           <th>Description</th>
           <th>Stars</th>

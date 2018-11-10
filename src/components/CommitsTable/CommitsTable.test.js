@@ -39,7 +39,7 @@ beforeEach(() => {
 });
 
 it('renders without crashing', () => {
-  expect(wrapper.find('.commits-table .commit-item').length).toEqual(2);
+  expect(wrapper.find('.commit-item').length).toEqual(2);
 });
 
 
