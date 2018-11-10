@@ -33,7 +33,6 @@ it('should render sha', () => {
 });
 
 it('should render commit message', () => {
-  console.log(wrapper.find('.commit-item__message').text())
   expect(wrapper.find('.commit-item__message').text()).toEqual('A good commit');
 });
 
