@@ -32,7 +32,8 @@ class RepoList extends Component {
   }
 
   fetchRepos(page) {
-    axios.get(`https://api.github.com/users/caioincau/repos?page=${page}&client_id=e09786bd7b7fceeec05c&client_secret=8f399db566137bbd578b73adf341cc29bf8445e8`)
+    console.log(process.env.REACT_APP_CLIENT_ID)
+    axios.get(`https://api.github.com/users/caioincau/repos?page=${page}&client_id=${process.env.REACT_APP_CLIENT_ID}&client_secret=${process.env.REACT_APP_CLIENT_SECRET}`)
       .then(response => {
         this.props.setRepos(response.data)
         this.setState({

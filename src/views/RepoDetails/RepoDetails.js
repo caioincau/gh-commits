@@ -46,7 +46,7 @@ class RepoDetails extends Component {
   }
 
   fetchCommits(page) {
-    axios.get(`https://api.github.com/repos/caioincau/${this.props.match.params.id}/commits?page=${page}&client_id=e09786bd7b7fceeec05c&client_secret=8f399db566137bbd578b73adf341cc29bf8445e8`)
+    axios.get(`https://api.github.com/repos/caioincau/${this.props.match.params.id}/commits?page=${page}&client_id=${process.env.REACT_APP_CLIENT_ID}&client_secret=${process.env.REACT_APP_CLIENT_SECRET}`)
       .then(response => {
         this.props.addCommits(response.data)
         this.setState({
