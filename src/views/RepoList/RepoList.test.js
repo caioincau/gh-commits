@@ -13,12 +13,14 @@ const repos = {
   data: [{
     id: 1,
     name: 'React test',
-    description: 'A repository with react'
+    description: 'Repository with react',
+    stargazers_count: 100
    },
    {
     id: 2,
-    name: 'Vue test',
-    description: 'A repository with Vue'
+    name: 'A Vue test',
+    description: 'A repository with Vue',
+    stargazers_count: 10
    }]
 }
 
@@ -55,6 +57,33 @@ it('should be in page 1', () => {
 it('should make a request', async () => {
   await flushPromises()
   expect(request.isDone()).toBe(true)
+})
+
+it('should sort by name', () => {
+  const NEW_LIST = wrapper.instance().sort(repos.data, 'name')
+  expect(NEW_LIST[0].id).toBe(2)
+})
+
+
+it('should sort by description', () => {
+  const NEW_LIST = wrapper.instance().sort(repos.data, 'description')
+  expect(NEW_LIST[0].description).toBe('A repository with Vue')
+})
+
+it('should sort by stargazers_count', () => {
+  const NEW_LIST = wrapper.instance().sort(repos.data, 'stargazers_count')
+  expect(NEW_LIST[0].stargazers_count).toBe(100)
+})
+
+it('should set the sort item by name on click', () => {
+  wrapper.find('.btn').at(0).simulate('click');
+  expect(wrapper.instance().state.order_by).toBe('name')
+})
+
+
+it('should set the sort item by stars on click', () => {
+  wrapper.find('.btn').at(2).simulate('click');
+  expect(wrapper.instance().state.order_by).toBe('stargazers_count')
 })
 
 
