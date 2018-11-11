@@ -1,7 +1,7 @@
 Project with Github integration
 
 
-##ES6 Use cases
+## ES6 Use cases
 
 - I used arrow functions to keep the context and avoid the use of binding methods
 - Another case is the destructuring operator on setState, to merge two objects into a new one
