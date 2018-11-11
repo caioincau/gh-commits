@@ -8,7 +8,7 @@ Project with Github integration
 - Use of import alias like this: BrowserRouter as Router
 - Template strings to make an easier interpolation
 
-##Github API limitations
+## Github API limitations
 Since Github limits the number of requests without authentication, I recommend you to add your credentials in the .env.development and .env.production files(https://developer.github.com/v3/guides/basics-of-authentication/)
 
 ## Lighthouse audit using 3G connection
