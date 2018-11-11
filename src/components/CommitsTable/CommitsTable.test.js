@@ -1,8 +1,8 @@
-import React from 'react';
-import CommitsTable from './CommitsTable';
-import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-Enzyme.configure({ adapter: new Adapter() });
+import React from 'react'
+import CommitsTable from './CommitsTable'
+import Enzyme from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
+Enzyme.configure({ adapter: new Adapter() })
 
 
 const commits =
@@ -31,15 +31,15 @@ let wrapper = {}
 let mountComponent = () => {
   return Enzyme.mount(
     <CommitsTable commits={commits}></CommitsTable>
-  );
+  )
 }
 
 beforeEach(() => {
   wrapper = mountComponent()
-});
+})
 
 it('renders without crashing', () => {
-  expect(wrapper.find('.commit-item').length).toEqual(2);
-});
+  expect(wrapper.find('.commit-item').length).toEqual(2)
+})
 
 

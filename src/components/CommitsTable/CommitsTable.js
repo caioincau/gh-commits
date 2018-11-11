@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import ReactLoading from 'react-loading';
+import React, { Component } from 'react'
+import ReactLoading from 'react-loading'
 import CommitItem from '../CommitItem'
-import styles from './CommitTable.module.css';
+import styles from './CommitTable.module.css'
 
 class CommitsTableContainer extends Component {
 

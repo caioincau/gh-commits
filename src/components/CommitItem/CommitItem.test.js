@@ -1,9 +1,9 @@
-import React from 'react';
-import CommitItem from './CommitItem';
-import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import React from 'react'
+import CommitItem from './CommitItem'
+import Enzyme from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
 
-Enzyme.configure({ adapter: new Adapter() });
+Enzyme.configure({ adapter: new Adapter() })
 
 
 const commit = {
@@ -21,23 +21,23 @@ let wrapper = {}
 beforeEach(() => {
   wrapper = Enzyme.shallow(
     <CommitItem commit={commit}></CommitItem>
-  );
-});
+  )
+})
 
 it('renders without crashing', () => {
-  expect(wrapper.find('.commit-item').length).toEqual(1);
-});
+  expect(wrapper.find('.commit-item').length).toEqual(1)
+})
 
 it('should render sha', () => {
-  expect(wrapper.find('.commit-item__sha').text()).toEqual('daijoijiodaijo41');
-});
+  expect(wrapper.find('.commit-item__sha').text()).toEqual('daijoijiodaijo41')
+})
 
 it('should render commit message', () => {
-  expect(wrapper.find('.commit-item__message').text()).toEqual('A good commit');
-});
+  expect(wrapper.find('.commit-item__message').text()).toEqual('A good commit')
+})
 
 it('should render the author name', () => {
-  expect(wrapper.find('.commit-item__author').text()).toEqual('jack');
-});
+  expect(wrapper.find('.commit-item__author').text()).toEqual('jack')
+})
 
 

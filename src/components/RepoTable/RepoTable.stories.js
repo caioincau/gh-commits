@@ -1,12 +1,12 @@
-import React from 'react';
+import React from 'react'
 
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
+import { storiesOf } from '@storybook/react'
+import { withInfo } from '@storybook/addon-info'
 import {
   BrowserRouter as Router,
 } from 'react-router-dom'
 
-import RepoTable from './RepoTable';
+import RepoTable from './RepoTable'
 import 'materialize-css/dist/css/materialize.css'
 const repos = [{
   id: 1,

@@ -1,12 +1,12 @@
-import React from 'react';
-import RepoDetails from './RepoDetails';
-import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import React from 'react'
+import RepoDetails from './RepoDetails'
+import Enzyme from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
 import nock from 'nock'
 import store from '../../store/store'
 import flushPromises from 'flush-promises'
 
-Enzyme.configure({ adapter: new Adapter() });
+Enzyme.configure({ adapter: new Adapter() })
 
 
 const commits = {
@@ -46,30 +46,30 @@ beforeEach(() => {
     store={store} >
     </RepoDetails>
   ).dive()
-});
+})
 
 it('renders without crashing', () => {
-  expect(wrapper.find('.card').length).toEqual(1);
-});
+  expect(wrapper.find('.card').length).toEqual(1)
+})
 
 it('should have filter', () => {
-  expect(wrapper.find('Filter').length).toEqual(1);
-});
+  expect(wrapper.find('Filter').length).toEqual(1)
+})
 
 
 it('should not have error', () => {
-  expect(wrapper.state().error).toEqual(false);
-});
+  expect(wrapper.state().error).toEqual(false)
+})
 
 it('should be in page 1', () => {
-  expect(wrapper.state().page).toEqual(1);
-});
+  expect(wrapper.state().page).toEqual(1)
+})
 
 
 it('should make a request', async () => {
   await flushPromises()
   expect(request.isDone()).toBe(true)
-});
+})
 
 
 

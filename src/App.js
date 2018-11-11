@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import RepoList from './views/RepoList'
 import RepoDetails from './views/RepoDetails'
 import ErrorBoundary from './components/ErrorBoundary'
-import './App.css';
+import './App.css'
 import 'materialize-css/dist/css/materialize.css'
 
 import {
@@ -27,8 +27,8 @@ class App extends Component {
           </ErrorBoundary>
         </Provider>
       </Router>
-    );
+    )
   }
 }
 
-export default App;
+export default App

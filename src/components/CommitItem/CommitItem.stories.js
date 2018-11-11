@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
+import { storiesOf } from '@storybook/react'
+import { withInfo } from '@storybook/addon-info'
 
-import CommitItem from './CommitItem';
+import CommitItem from './CommitItem'
 import 'materialize-css/dist/css/materialize.css'
 
 const commit = {

@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
+import { storiesOf } from '@storybook/react'
+import { withInfo } from '@storybook/addon-info'
 
-import FailurePage from './FailurePage';
+import FailurePage from './FailurePage'
 import 'materialize-css/dist/css/materialize.css'
 
 storiesOf('FailurePage', module)

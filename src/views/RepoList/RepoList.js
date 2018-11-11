@@ -6,12 +6,12 @@ import * as repoAction from '../../store/actions/github'
 
 import RepoTableContainer from '../../components/RepoTable'
 import axios from 'axios'
-import styles from './RepoList.module.css';
-import FailurePage from '../../components/FailurePage';
+import styles from './RepoList.module.css'
+import FailurePage from '../../components/FailurePage'
 
 class RepoList extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       error: false,
       page: 1,
@@ -20,21 +20,21 @@ class RepoList extends Component {
   }
 
   componentDidMount() {
-    this.fetchRepos(1);
+    this.fetchRepos(1)
     window.onscroll = () => {
       const reachedEndOfPage = window.innerHeight + document.documentElement.scrollTop
-        === document.documentElement.offsetHeight;
+        === document.documentElement.offsetHeight
       if (reachedEndOfPage) {
         this.fetchRepos(this.state.page)
       }
-    };
+    }
 
   }
 
   fetchRepos(page) {
     axios.get(`https://api.github.com/users/caioincau/repos?page=${page}&client_id=e09786bd7b7fceeec05c&client_secret=8f399db566137bbd578b73adf341cc29bf8445e8`)
       .then(response => {
-        this.props.setRepos(response.data);
+        this.props.setRepos(response.data)
         this.setState({
           ...this.state,
           page: page+1
@@ -42,8 +42,8 @@ class RepoList extends Component {
       }).catch((error) => {
         this.setState({
           error: true
-        });
-      });
+        })
+      })
   }
 
   changeSort(name) {

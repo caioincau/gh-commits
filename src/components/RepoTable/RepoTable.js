@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import ReactLoading from 'react-loading';
+import React, { Component } from 'react'
+import ReactLoading from 'react-loading'
 import RepoItem from '../RepoItem'
-import style from './RepoTable.module.css';
+import style from './RepoTable.module.css'
 
 class RepoTableContainer extends Component {
   render() {
